@@ -22,9 +22,8 @@ Na stronach **Home** i **Playlists** dostępne są:
 - Przyciski do odtwarzania playlist.
 - Przyciski do przejścia na stronę wybranej playlisty.
 
-## 💻 Technologie
-
-### 🧩 C#
+## Technologie
+### C#
 - .NET 9 (9.0.300)
 Aplikację wykonałem z użyciem natywnych komponentów UI z [WinUI 3](https://learn.microsoft.com/en-us/windows/apps/winui/winui3/).
 
