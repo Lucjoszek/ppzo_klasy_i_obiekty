@@ -26,11 +26,11 @@ Na stronach **Home** i **Playlists** dostępne są:
 ## Technologie
 ### C#
 - .NET 9 (9.0.300)
-Aplikację wykonano z użyciem natywnych komponentów UI z [WinUI 3](https://learn.microsoft.com/en-us/windows/apps/winui/winui3/).
+- Aplikację wykonano z użyciem natywnych komponentów UI z [WinUI 3](https://learn.microsoft.com/en-us/windows/apps/winui/winui3/).
 
 ### Python
 - Python 3.13.3
-Aplikację wykonano z użyciem [Eel](https://github.com/python-eel/Eel), który pozwala na komunikację między Pythonem a JavaScriptem.
-Na backendzie znajduje się Python, a na frontendzie HTML, CSS i JavaScript.
-Do odtwarzania muzyki użyto biblioteki [just_playback](https://github.com/cheofusi/just_playback).
-Styl komponentów zapewnił [daisyUI](https://daisyui.com).
+- Aplikację wykonano z użyciem [Eel](https://github.com/python-eel/Eel), który pozwala na komunikację między Pythonem a JavaScriptem.
+- Na backendzie znajduje się Python, a na frontendzie HTML, CSS i JavaScript.
+- Do odtwarzania muzyki użyto biblioteki [just_playback](https://github.com/cheofusi/just_playback).
+- Styl komponentów zapewnił [daisyUI](https://daisyui.com).
