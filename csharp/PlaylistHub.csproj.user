@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AppIconSource>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</AppIconSource>
+    <Source>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</Source>
+    <SmallTileSource>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</SmallTileSource>
+    <MediumTileSource>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</MediumTileSource>
+    <WideTileSource>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</WideTileSource>
+    <LargeTileSource>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</LargeTileSource>
+    <SplashScreenSource>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</PackageLogoSource>
+    <ActiveDebugProfile>PlaylistHub (Package)</ActiveDebugProfile>
+    <BadgeLogoSource>C:\Users\User\Desktop\Studia\PPZO\PlaylistHub\Assets\AppLogo.png</BadgeLogoSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="App.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </None>
+    <Page Update="Pages\SelectedPlaylist.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Playlists.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Home.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
