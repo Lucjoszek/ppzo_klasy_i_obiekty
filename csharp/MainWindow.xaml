@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="PlaylistHub.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PlaylistHub"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="PlaylistHub">
+
+    <Window.SystemBackdrop>
+        <DesktopAcrylicBackdrop/>
+    </Window.SystemBackdrop>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Navigation -->
+            <RowDefinition Height="*"/>
+            <!-- Bottom panel -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Navigation -->
+        <NavigationView x:Name="NavView" 
+                        Grid.Row="0" 
+                        IsBackEnabled="True" 
+                        IsSettingsVisible="False" 
+                        Loaded="NavView_Loaded" 
+                        SelectionChanged="NavView_SelectionChanged" 
+                        BackRequested="NavView_BackRequested">
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Home" 
+                                    Icon="Home" 
+                                    Tag="PlaylistHub.Pages.Home"/>
+
+                <NavigationViewItem Content="Playlists" 
+                                    Icon="MusicInfo" 
+                                    Tag="PlaylistHub.Pages.Playlists"/>
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="ContentFrame"/>
+        </NavigationView>
+
+        <!-- Bottom panel -->
+        <StackPanel Grid.Row="1">
+
+            <!-- Progress slider -->
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Padding="0,12,0,0" 
+                        Spacing="20">
+
+                <TextBlock x:Name="CurrentTimeTextBlock" 
+                           VerticalAlignment="Center" 
+                           Text="0:00"/>
+
+                <Slider x:Name="ProgressSlider" 
+                        Width="300" 
+                        Minimum="0" 
+                        Maximum="100" 
+                        IsEnabled="False"/>
+
+                <TextBlock x:Name="TotalTimeTextBlock" 
+                           VerticalAlignment="Center" 
+                           Text="0:00"/>
+            </StackPanel>
+
+            <Grid Padding="20,4,20,20">
+                <Grid.ColumnDefinitions>
+                    <!-- Track info -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Center controls -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Volume controls -->
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Track info -->
+                <StackPanel Grid.Column="0">
+
+                    <TextBlock x:Name="TrackNumberTextBlock" 
+                               Text="0/0"
+                               FontSize="12"/>
+
+                    <TextBlock x:Name="TrackTitleTextBlock" 
+                               Text="Track Title"
+                               FontWeight="Bold"
+                               FontSize="14"
+                               TextTrimming="CharacterEllipsis"/>
+
+                    <TextBlock x:Name="TrackArtistTextBlock" 
+                               Text="Track Artist" 
+                               FontWeight="SemiBold" 
+                               FontSize="12" 
+                               TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+
+                <!-- Center controls -->
+                <StackPanel Grid.Column="1" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Spacing="16">
+
+                    <Button Click="PreviousAudio_Click" 
+                            x:Name="PreviousAudioButton"
+                            ToolTipService.ToolTip="Previous">
+
+                        <FontIcon Glyph="&#xE892;"/>
+                    </Button>
+
+                    <Button Click="PlayPauseAudio_Click" 
+                            x:Name="PlayPauseAudioButton"
+                            ToolTipService.ToolTip="Play/Pause">
+
+                        <FontIcon x:Name="PlayPauseAudioButtonIcon" 
+                                  Glyph="&#xE768;"/>
+                    </Button>
+
+                    <Button Click="NextAudio_Click"
+                            x:Name="NextAudioButton"
+                            ToolTipService.ToolTip="Next">
+
+                        <FontIcon Glyph="&#xE893;"/>
+                    </Button>
+                </StackPanel>
+
+                <!-- Volume controls -->
+                <StackPanel Grid.Column="2" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Center" 
+                            Spacing="8">
+
+                    <FontIcon Glyph="&#xE994;" 
+                              ToolTipService.ToolTip="Volume"/>
+
+                    <Slider Width="120" 
+                            Minimum="0" 
+                            Maximum="100" 
+                            Value="50" 
+                            ValueChanged="VolumeSlider_ValueChanged"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

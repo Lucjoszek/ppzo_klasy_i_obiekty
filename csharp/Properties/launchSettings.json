@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PlaylistHub (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PlaylistHub (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

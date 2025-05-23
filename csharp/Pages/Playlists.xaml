@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="PlaylistHub.Pages.Playlists"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PlaylistHub.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:PlaylistHub.Models"
+    mc:Ignorable="d">
+
+    <Grid Margin="36,40">
+        <Grid.RowDefinitions>
+            <!-- Header -->
+            <RowDefinition Height="Auto"/>
+            <!-- Main content -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Page title -->
+            <StackPanel>
+                <TextBlock Text="Your Playlists" 
+                           FontSize="24" 
+                           FontWeight="Bold"/>
+            </StackPanel>
+
+            <!-- New playlist button -->
+            <StackPanel Grid.Row="1" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="12">
+
+                <Button Click="CreatePlaylist_Click"
+                        Content="New playlist"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Main content -->
+        <Grid Grid.Row="1">
+
+            <!-- Text when there are no playlists to display -->
+            <TextBlock Grid.Row="0"
+                       x:Name="NothingToDisplayText"
+                       Text="Nothing to display"
+                       FontSize="24"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+            <ListView x:Name="PlaylistsListView"
+                      Margin="0, 20" 
+                      Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                      Padding="4"
+                      Visibility="Collapsed"
+                      CornerRadius="4"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Playlist">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" 
+                                        Spacing="2"
+                                        Padding="4">
+
+                                <!-- Playlist title -->
+                                <TextBlock Text="{x:Bind Title}"
+                                           FontSize="16"/>
+
+                                <!-- Total duration -->
+                                <StackPanel Orientation="Horizontal" 
+                                            Spacing="4">
+
+                                    <TextBlock Text="Duration:"
+                                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                    <TextBlock Text="{x:Bind FormattedDuration}" 
+                                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                </StackPanel>
+
+                                <!-- Total tracks -->
+                                <StackPanel Orientation="Horizontal"
+                                            Spacing="4">
+
+                                    <TextBlock Text="Tracks:"
+                                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                    <TextBlock Text="{x:Bind Tracks.Count}" 
+                                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- Buttons -->
+                            <StackPanel Grid.Column="1" 
+                                        Orientation="Horizontal" 
+                                        Spacing="10" 
+                                        VerticalAlignment="Center">
+
+                                <Button Content="See playlist" 
+                                        Click="SeePlaylist_Click">
+                                </Button>
+
+                                <Button Click="RunPlaylist_Click">
+                                    <FontIcon Glyph="&#xE768;"
+                                              ToolTipService.ToolTip="Play"/>
+                                </Button>
+
+                                <Button>
+                                    <FontIcon Glyph="&#xE712;"
+                                              ToolTipService.ToolTip="More"/>
+                                    <Button.Flyout>
+                                        <MenuFlyout>
+                                            <MenuFlyoutItem Click="DeletePlaylist_Click" 
+                                                            Text="Delete" 
+                                                            Icon="Delete"/>
+                                        </MenuFlyout>
+                                    </Button.Flyout>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>
