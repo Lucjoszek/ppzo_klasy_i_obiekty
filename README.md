@@ -1,5 +1,6 @@
 # Zadanie - Tworzenie klas i obiektów
 Zadanie wykonane w ramach przedmiotu "Podstawy programowania zorientowane obiektowo".
+
 Wybrałem zadanie nr. 12: System playlist muzycznych - klasy `Track`, `Playlist`, `User`; tworzenie, modyfikacja i odtwarzanie list utworów.
 
 ## Uwaga!
